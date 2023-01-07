@@ -110,6 +110,7 @@
 						<li><a href="{{route('gioithieu')}}">Giới thiệu</a></li>
 						<li><a href="{{route('lienhe')}}">Liên hệ</a></li>
 						<li><a href="{{route('tintuc')}}">Tin tức</a></li>
+						<li><a href="admin/home">Trang quản trị</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</nav>
