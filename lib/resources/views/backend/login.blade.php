@@ -17,7 +17,10 @@
 </head>
 
 <body>
-	
+	<div>
+		<p>TK: nguyenphuochao123@gmail.com</p>
+		<p>pass: 111111</p>
+	</div>
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
@@ -30,9 +33,14 @@
 								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" value="{{old('email')}}">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
+								<input class="form-control" placeholder="Password" name="password" id="id_pass" type="password" value="">
 							</div>
-							<div class="checkbox">
+							<div class="checkbox1">
+								<label>
+									<input name="remember" type="checkbox"  id="id_hienmk" onclick="hienMK()">Hiện mật khẩu
+								</label>
+							</div>
+							<div class="checkbox2">
 								<label>
 									<input name="remember" type="checkbox" value="Remember Me">Ghi nhớ
 									<a href="{{asset('resetpasswordadmin')}}">Quên mật khẩu?</a>
@@ -72,6 +80,19 @@
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
 	</script>	
+	<script>
+		function hienMK(){
+			var pass=document.getElementById('id_pass');
+			var hienmk=document.getElementById('id_hienmk');
+			if (hienmk.checked) {
+				if (pass.type=="password")
+					pass.type="text";	
+			}else{
+				if (pass.type=="text")
+					pass.type="password"
+			}
+		}
+	</script>
 </body>
 
 </html>
