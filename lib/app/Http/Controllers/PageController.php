@@ -209,26 +209,27 @@ class PageController extends Controller
             $use->phone=$req->phone_numer;
             $use->password=Hash::make($req->password);
             $use->quyen=0;
-            $use->active=0;
+            $use->active=1;
             $use->save();
-        if($use->id){
-            $email=$use->email;
-            $code=bcrypt(md5(time().$email));
-            $url=route('xac_nhan_dang_ki',['id'=>$use->id,'code'=>$code]);
+        // if($use->id){
+        //     $email=$use->email;
+        //     $code=bcrypt(md5(time().$email));
+        //     $url=route('xac_nhan_dang_ki',['id'=>$use->id,'code'=>$code]);
 
-            $use->code_active=$code;
-            $use->time_active=Carbon::now();
-            $use->save();
-            $data=[
-                'route'=>$url
-            ];
+        //     $use->code_active=$code;
+        //     $use->time_active=Carbon::now();
+        //     $use->save();
+        //     $data=[
+        //         'route'=>$url
+        //     ];
     
-            Mail::send('page.xacnhan_dangki', $data, function ($message) use ($email) {
-                $message->to($email, 'John Doe')->subject('Xác nhận đăng kí tài khoản');
+        //     Mail::send('page.xacnhan_dangki', $data, function ($message) use ($email) {
+        //         $message->to($email, 'John Doe')->subject('Xác nhận đăng kí tài khoản');
                
-            });
-            return redirect()->back()->with('thanhcong','Tạo tài khoản thành công! Kiểm tra email của bạn để kích hoạt nha');
-        }
+        //     });
+        //     return redirect()->back()->with('thanhcong','Tạo tài khoản thành công! Kiểm tra email của bạn để kích hoạt nha');
+        // }
+            return back()->with('thanhcong','Đăng kí thành công');
     
     }
     //gửi mail đăng kí xác nhận
@@ -377,16 +378,16 @@ class PageController extends Controller
         $email=$req->email;
         $data['hoadon'] = Session::get('cart');
 
-        Mail::send('page.emailhoadon', $data, function ($message) use($email) {   
-            $message->from('nguyenphuochao456@gmail.com', 'Hao Nguyen');
+        // Mail::send('page.emailhoadon', $data, function ($message) use($email) {   
+        //     $message->from('nguyenphuochao456@gmail.com', 'Hao Nguyen');
           
-            $message->to($email, 'You');
-            $message->cc('john@johndoe.com', 'John Doe');
-            $message->bcc('john@johndoe.com', 'John Doe');
-            $message->replyTo('john@johndoe.com', 'John Doe');
-            $message->subject('Xác nhận hóa đơn mua hàng');
+        //     $message->to($email, 'You');
+        //     $message->cc('john@johndoe.com', 'John Doe');
+        //     $message->bcc('john@johndoe.com', 'John Doe');
+        //     $message->replyTo('john@johndoe.com', 'John Doe');
+        //     $message->subject('Xác nhận hóa đơn mua hàng');
                       
-        });
+        // });
        
         Session::forget('cart');
         return redirect()->back()->with('thongbao','Đặt hàng thành công! Kiểm tra hóa đơn trên email của bạn');

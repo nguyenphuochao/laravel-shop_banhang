@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 19, 2022 lúc 06:32 PM
+-- Thời gian đã tạo: Th1 18, 2023 lúc 04:31 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.11
 
@@ -69,9 +69,9 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
-(15, 22, '2022-01-11', 32900000, 'COD', 'Giao hàng trước 5h chiều', '2022-01-11 14:59:11', '2022-01-11 14:59:11'),
-(16, 23, '2022-01-17', 4900000, 'COD', 'giao hàng khoảng 12h trưa', '2022-01-17 16:01:18', '2022-01-17 16:01:18'),
-(17, 24, '2022-01-18', 290000000, 'COD', 'aa', '2022-01-18 12:38:42', '2022-01-18 12:38:42');
+(19, 26, '2022-12-15', 3900000, 'COD', 'aaa', '2022-12-15 05:20:22', '2022-12-15 05:20:22'),
+(20, 27, '2022-12-15', 3900000, 'COD', 'aaa', '2022-12-15 05:24:51', '2022-12-15 05:24:51'),
+(21, 28, '2023-01-02', 29000000, 'COD', 'aaa', '2023-01-02 10:40:49', '2023-01-02 10:40:49');
 
 -- --------------------------------------------------------
 
@@ -94,10 +94,9 @@ CREATE TABLE `bill_detail` (
 --
 
 INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
-(26, 15, 70, 1, 29000000, '2022-01-11 14:59:11', '2022-01-11 14:59:11'),
-(27, 15, 71, 1, 3900000, '2022-01-11 14:59:11', '2022-01-11 14:59:11'),
-(28, 16, 72, 1, 4900000, '2022-01-17 16:01:18', '2022-01-17 16:01:18'),
-(29, 17, 70, 10, 29000000, '2022-01-18 12:38:42', '2022-01-18 12:38:42');
+(31, 19, 71, 1, 3900000, '2022-12-15 05:20:22', '2022-12-15 05:20:22'),
+(32, 20, 71, 1, 3900000, '2022-12-15 05:24:51', '2022-12-15 05:24:51'),
+(33, 21, 70, 1, 29000000, '2023-01-02 10:40:49', '2023-01-02 10:40:49');
 
 -- --------------------------------------------------------
 
@@ -168,9 +167,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `id_user`, `gender`, `note`, `trangthai`, `created_at`, `updated_at`) VALUES
-(22, 7, 'nam', 'Giao hàng trước 5h chiều', 1, '2022-01-11 14:59:11', '2022-01-19 14:44:36'),
-(23, 7, 'nam', 'giao hàng khoảng 12h trưa', 0, '2022-01-17 16:01:17', '2022-01-17 16:01:17'),
-(24, 7, 'nam', 'aa', 0, '2022-01-18 12:38:42', '2022-01-18 12:38:42');
+(26, 19, 'nam', 'aaa', 0, '2022-12-15 05:20:22', '2022-12-15 05:20:22'),
+(27, 19, 'nam', 'aaa', 0, '2022-12-15 05:24:51', '2022-12-15 05:24:51'),
+(28, 19, 'nam', 'aaa', 0, '2023-01-02 10:40:49', '2023-01-02 10:40:49');
 
 -- --------------------------------------------------------
 
@@ -384,8 +383,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `fullname`, `address`, `phone`, `quyen`, `password`, `active`, `remember_token`, `code`, `time_code`, `code_active`, `time_active`, `created_at`, `updated_at`) VALUES
-(6, 'nguyenphuochao123@gmail.com', 'Nguyễn Phước Hảo', '301/5 phước tân hưng', '098383838', 1, '$2y$10$RjuSjjYDySvcRJedtgYiG.HEDCRcCl8.NR5SwWlVx5IOQ7sBPAUdy', 1, 'a7dNuipdYOgvC1w0cQTdRyUJtQYg4t744VWQaWpJqRONXozsMu2L7iJa18yn', '$2y$10$TmsUKgSW06/EAATTRHbwFOUyBwgka3N.teQ/bsLffYp3YnO2bpRB.', '2021-11-22 01:24:04', NULL, NULL, NULL, '2021-11-22 15:17:05'),
-(7, 'nguyenphuochao456@gmail.com', 'Nguyễn Thanh Toàn', 'huyện Cà Mau', '0983736654', 0, '$2y$10$wgInUD4kx2CKPxDyYNsoK.5uDgCS39IHR7RmCc6bcvYQso9p6V1yi', 1, NULL, '$2y$10$1nUIv6IkesMNU9wx3mPIDupo.NokCUwt8LjS5S00yWRWX5SlVHwgq', '2021-11-22 01:35:35', '$2y$10$D83ELIjlOUZWnx6nNGi/I.aH7lM6ph3t0WH76ehkvhKYujCBAU/Ce', '2021-11-21 17:39:26', '2021-11-21 17:39:25', '2022-01-18 16:50:47');
+(19, 'nguyenphuochao123@gmail.com', 'Nguyễn Phước Hảo', '301', '098383838', 1, '$2y$10$tZaciGmAZqO4HYr2Yv47VOopM9tH9zLBVP5WfLmxWOLrB7DNINnQu', 1, 'G9giAa89H3IXKiWN81sHfSgUpd5zhVOHqkFXWBQKYJPsrY7Z645TOpo2cplj', '$2y$10$NMOJKCGkKbzhN5O93fbHwebmFZZwFzubP1RxM6PgEHiSxZxOyCMI2', '2023-01-18 15:12:21', NULL, NULL, NULL, '2023-01-18 15:12:21'),
+(33, 'nguyenphuochao456@gmail.com', 'Trần Kim Thảo', 'Số 39 đường 204 cao lỗ,phường 4,quận 8', '0584228904', 0, '$2y$10$T6MLVIJTg6v9FOCkxXfPmOgtZ.q4JQhNgTmqKXxSqErpS3d4.GNb.', 1, NULL, NULL, NULL, NULL, NULL, '2023-01-18 15:17:40', '2023-01-18 15:17:40');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -498,13 +497,13 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `binh_luan`
@@ -522,7 +521,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `khuyen_mai`
@@ -570,7 +569,7 @@ ALTER TABLE `type_products`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
